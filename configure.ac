@@ -41,12 +41,8 @@ echo Using further args: $@
 
 if test $TARGET = native ; then
   CXX_FLAGS="-O2 -march=native $CXX_FLAGS"
-elif test $TARGET = generic ; then
-  CXX_FLAGS="-mtune=generic -mavx2 -O3 $CXX_FLAGS"
 elif test $TARGET = default ; then
   CXX_FLAGS="$CXX_FLAGS"
-elif test $TARGET = debug ; then
-  CXX_FLAGS="-mtune=generic -mavx2 -g $CXX_FLAGS"
 elif test $TARGET = empty ; then
   echo No compiler flags used
 fi

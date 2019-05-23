@@ -1675,7 +1675,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
-USE_FLAGS=false
+USE_FLAGS=true
 
 if "${R_HOME}/bin/R" CMD config CXX11 > /dev/null ; then
   RANDOMFIELDS_CXX=`"${R_HOME}/bin/R" CMD config CXX11`
@@ -1716,12 +1716,8 @@ echo Using further args: $@
 
 if test $TARGET = native ; then
   CXX_FLAGS="-O2 -march=native $CXX_FLAGS"
-elif test $TARGET = generic ; then
-  CXX_FLAGS="-mtune=generic -mavx2 -O3 $CXX_FLAGS"
 elif test $TARGET = default ; then
   CXX_FLAGS="$CXX_FLAGS"
-elif test $TARGET = debug ; then
-  CXX_FLAGS="-mtune=generic -mavx2 -g $CXX_FLAGS"
 elif test $TARGET = empty ; then
   echo No compiler flags used
 fi
@@ -1734,8 +1730,6 @@ RANDOMFIELDS_CXXFLAGS=$CXX_FLAGS
 
 
 ac_config_files="$ac_config_files src/Makevars"
-
-
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure

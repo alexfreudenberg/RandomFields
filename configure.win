@@ -1,0 +1,8 @@
+#!/bin/bash
+
+RANDOMFIELDS_CXXFLAGS="-mtune=generic -mavx -O3 $CXX_FLAGS"
+
+echo Using custom CXXFLAGS: $RANDOMFIELDS_CXXFLAGS
+
+sed -e "s|@RANDOMFIELDS_CXXFLAGS@|$RANDOMFIELDS_CXXFLAGS|" \
+  src/Makevars.in > src/Makevars.win
