@@ -1,6 +1,11 @@
 #!/bin/bash
+USE_FLAGS = true
 
-RANDOMFIELDS_CXXFLAGS="-mtune=generic -mavx -O3 $CXX_FLAGS"
+if $USE_FLAGS ; then
+  RANDOMFIELDS_CXXFLAGS="-mtune=generic -mavx -O3 $CXX_FLAGS"
+else
+  RANDOMFIELDS_CXXFLAGS="$CXX_FLAGS"
+fi
 
 echo Using custom CXXFLAGS: $RANDOMFIELDS_CXXFLAGS
 
