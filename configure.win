@@ -2,7 +2,7 @@
 USE_FLAGS = true
 
 if $USE_FLAGS ; then
-  RANDOMFIELDS_CXXFLAGS="-mtune=generic -mavx -O3 $CXX_FLAGS"
+  RANDOMFIELDS_CXXFLAGS="-mtune=generic -mavx -O2 $CXX_FLAGS"
 else
   RANDOMFIELDS_CXXFLAGS="$CXX_FLAGS"
 fi
